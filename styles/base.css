@@ -1,0 +1,64 @@
+/* Right Column */
+
+.right-content {
+  border: 1px solid red;
+}
+
+.right-card {
+  background-color: #ccc;
+}
+
+
+
+
+
+/* Left Column Stuff */
+
+.left-content {
+  border: 1px solid blue;
+  min-height: 500px;
+}
+
+.left-content .item {
+  border: 1px solid #f57c00;
+}
+
+.default-left-div {
+  background-color: #fff3e0;
+}
+
+
+.preview-card {
+  background-color: #ffd180;
+}
+
+.preview-card-header {
+  background-color: #00bcd4;
+}
+
+.pizza-enter {
+  opacity: 0;
+  transform:   translate(250px,0);
+  transform: translate3d(250px,0,0);
+}
+.pizza-enter.pizza-enter-active {
+  opacity: 1;
+  transform:   translate(0,0);
+  transform: translate3d(0,0,0);
+  transition-property: transform, opacity;
+  transition-duration: 1000ms;
+  transition-timing-function: cubic-bezier(0.175, 0.665, 0.320, 1), linear;
+}
+.pizza-leave {
+  opacity: 1;
+  transform:   translate(0,0,0);
+  transform: translate3d(0,0,0);
+  transition-property: transform, opacity;
+  transition-duration: 1000ms;
+  transition-timing-function: cubic-bezier(0.175, 0.665, 0.320, 1), linear;
+}
+.pizza-leave.pizza-leave-active {
+  opacity: 0;
+  transform:   translate(-250px,0);
+  transform: translate3d(-250px,0,0);
+}
