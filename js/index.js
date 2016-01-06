@@ -28,26 +28,27 @@ var Content = React.createClass({
   },
 
   renderLeftContent: function() {
-    var innerContent;
+    var preview;
 
     if(this.state.previewItem) {
-      innerContent = <PreviewCard key="preview-item" item={this.state.previewItem} hidePreview={this.hideItemPreview} />
-    } else {
-      innerContent = <RecommendationsCard key="recommendations" items={this.state.items} showPreview={this.showItemPreview} />
+      preview = <PreviewCard key="preview-item" item={this.state.previewItem} hidePreview={this.hideItemPreview} />
     }
 
     return (
-      <div className="default-left-div">
-        <ReactCSSTransitionGroup transitionName="pizza" transitionAppear={true} transitionAppearTimeout={500} transitionEnterTimeout={500} transitionLeaveTimeout={200}>
-          {innerContent}
-        </ReactCSSTransitionGroup>
+      <div className="col s8 m8 left-content">
+        <RecommendationsCard key="recommendations" items={this.state.items} showPreview={this.showItemPreview} />
+
+          <ReactCSSTransitionGroup transitionName="pizza" transitionAppear={true} transitionAppearTimeout={500} transitionEnterTimeout={500} transitionLeaveTimeout={500}>
+            {preview}
+          </ReactCSSTransitionGroup>
+
       </div>
     )
   },
 
   renderRightContent: function() {
     return (
-      <div className="right-card">
+      <div className="col s4 m4 right-content">
         <ul>
           <li>Heres a thing</li>
           <li>Heres a thing</li>
@@ -61,8 +62,8 @@ var Content = React.createClass({
   render: function() {
     return (
       <div className="row thrive-plan">
-        <div className="col s8 m8 left-content">{this.renderLeftContent()}</div>
-        <div className="col s4 m4 right-content">{this.renderRightContent()}</div>
+        {this.renderLeftContent()}
+        {this.renderRightContent()}
       </div>
     );
   },
@@ -80,6 +81,8 @@ var PreviewCard = React.createClass({
     item: React.PropTypes.object,
     hidePreview: React.PropTypes.func
   },
+
+
 
   render: function() {
     return (

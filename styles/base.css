@@ -9,56 +9,59 @@
 }
 
 
-
-
-
 /* Left Column Stuff */
 
 .left-content {
   border: 1px solid blue;
+  width: 1000px; /* needs to be relative */
   min-height: 500px;
+  position: relative;
 }
 
 .left-content .item {
   border: 1px solid #f57c00;
 }
 
-.default-left-div {
-  background-color: #fff3e0;
-}
-
-
 .preview-card {
-  background-color: #ffd180;
+  background-color: aliceblue;
+  right: 0px;
+  top: 0;
+  min-height: 100%;
+  z-index:2;
+  position: absolute;
 }
 
 .preview-card-header {
   background-color: #00bcd4;
 }
 
+.preview-card-header p {
+  margin: 0;
+}
+
+.pizza-appear {
+  width: 0;
+}
+
+.pizza-appear.pizza-appear-active {
+  width: 100%;
+  transition: width 1s ease-in;
+}
+
 .pizza-enter {
-  opacity: 0;
-  transform:   translate(250px,0);
-  transform: translate3d(250px,0,0);
+  width: 0;
 }
+
 .pizza-enter.pizza-enter-active {
-  opacity: 1;
-  transform:   translate(0,0);
-  transform: translate3d(0,0,0);
-  transition-property: transform, opacity;
-  transition-duration: 1000ms;
-  transition-timing-function: cubic-bezier(0.175, 0.665, 0.320, 1), linear;
+  width: 100%;
+  transition: width 1s ease-in;
 }
+
 .pizza-leave {
-  opacity: 1;
-  transform:   translate(0,0,0);
-  transform: translate3d(0,0,0);
-  transition-property: transform, opacity;
-  transition-duration: 1000ms;
-  transition-timing-function: cubic-bezier(0.175, 0.665, 0.320, 1), linear;
+  width: 100%;
 }
+
 .pizza-leave.pizza-leave-active {
-  opacity: 0;
-  transform:   translate(-250px,0);
-  transform: translate3d(-250px,0,0);
+  width: 0;
+  transition:  width 1s ease-in;
 }
